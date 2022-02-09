@@ -17,13 +17,6 @@
             overflow: hidden;
         }
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #fff;
-        }
-
         ul {
             position: relative;
             margin: 0;
@@ -42,6 +35,7 @@
             margin: 8px;
         }
 
+        /* styling each icon  */
         .ico01 {
             background-color: #111;
             position: relative;
@@ -66,18 +60,25 @@
             z-index: 1;
         }
 
-
         .ico05 {
             background-color: #3b5998;
             transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.8s;
             z-index: 1;
         }
 
+        /* basic styling to each move icon  */
         .move-ico {
             position: absolute;
             top: 0;
         }
 
+        /* adding transition on hover ico after active */
+        .active .move-ico:hover {
+            top: -20%;
+            transition: 0.5s cubic-bezier(.51, .5, .54, .52);
+        }
+
+        /* css for transforming each icon next to one next after active  */
         .active .ico02 {
             transform: translateX(calc(54px + 30px));
             transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.8s;
@@ -93,17 +94,15 @@
             transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
         }
 
+        /* center menu object  */
         .menu-object {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            margin: auto;
-            width: calc(54px * 4 + 30px * 3);
-            height: 54px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
+        /* css for creating plus icon  */
         .menu-object .ico01::before {
             content: "";
             position: absolute;
@@ -132,6 +131,7 @@
             transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
         }
 
+        /* basic styling to link  */
         .menu-object .link {
             display: block;
             width: 100%;
@@ -141,11 +141,7 @@
             font-size: 24px;
         }
 
-        .active .move-ico:hover {
-            top: -20%;
-            transition: 0.5s cubic-bezier(.51, .5, .54, .52);
-        }
-
+        /* center font awesome icon  */
         .menu-object .link i {
             position: absolute;
             top: 50%;
@@ -153,6 +149,7 @@
             transform: translate3d(-50%, -50%, 0);
         }
 
+        /* css for changing menu object plus icon to cross cancel icon after active  */
         .active .menu-object .ico01::before {
             transform: rotate(45deg);
         }
@@ -167,7 +164,7 @@
     <div class="wrapper">
         <div class="menu-object">
             <ul class="toggle">
-                <li class="ico01 normalico"></li>
+                <li class="ico01 normalico" onclick="toggle()"></li>
                 <li class="move-ico ico02">
                     <a href="" class="link link01">
                         <i class="fab fa-instagram"></i>
@@ -192,16 +189,16 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://kit.fontawesome.com/dd8c49730d.js"></script>
 
     <script>
         function toggle() {
-            $('.ico01').click(function () {
-                $('.wrapper').toggleClass('active');
-            })
+            let toggleIcon = document.querySelector(".ico01").addEventListener("mouseover", active);
+            function active() {
+                let wrapper = document.querySelector(".wrapper")
+                wrapper.classList.toggle("active");
+            }
         }
-
         toggle();
     </script>
 </body>
