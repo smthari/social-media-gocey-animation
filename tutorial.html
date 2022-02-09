@@ -8,6 +8,7 @@
     <title>Document</title>
 
     <style>
+        /* basic styling  */
         html,
         body {
             position: relative;
@@ -66,14 +67,14 @@
             z-index: 1;
         }
 
-        /* basic styling to each move icon  */
-        .move-ico {
+        /*  styling to make icons one over the other  */
+        .icon {
             position: absolute;
             top: 0;
         }
 
-        /* adding transition on hover ico after active */
-        .active .move-ico:hover {
+        /* adding transition on hover icon after active */
+        .active .icon:hover {
             top: -20%;
             transition: 0.5s cubic-bezier(.51, .5, .54, .52);
         }
@@ -131,6 +132,15 @@
             transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
         }
 
+        /* css for changing menu object plus symbol  to cross cancel symbl  after active  */
+        .active .menu-object .ico01::before {
+            transform: rotate(45deg);
+        }
+
+        .active .menu-object .ico01::after {
+            transform: rotate(45deg);
+        }
+
         /* basic styling to link  */
         .menu-object .link {
             display: block;
@@ -143,46 +153,33 @@
 
         /* center font awesome icon  */
         .menu-object .link i {
-            position: absolute;
+            position: relative;
             top: 50%;
             left: 50%;
             transform: translate3d(-50%, -50%, 0);
-        }
-
-        /* css for changing menu object plus icon to cross cancel icon after active  */
-        .active .menu-object .ico01::before {
-            transform: rotate(45deg);
-        }
-
-        .active .menu-object .ico01::after {
-            transform: rotate(45deg);
         }
     </style>
 </head>
 
 <body>
+
     <div class="wrapper">
         <div class="menu-object">
-            <ul class="toggle">
-                <li class="ico01 normalico" onclick="toggle()"></li>
-                <li class="move-ico ico02">
+            <ul>
+                <li class="ico01 normalico"></li>
+                <li class="icon ico02">
                     <a href="" class="link link01">
                         <i class="fab fa-instagram"></i>
                     </a>
                 </li>
-                <li class="move-ico ico03">
+                <li class="icon ico03">
                     <a href="" class="link link02">
                         <i class="fab fa-google"></i>
                     </a>
                 </li>
-                <li class="move-ico ico04">
+                <li class="icon ico04">
                     <a href="" class="link link03">
                         <i class="fab fa-twitter"></i>
-                    </a>
-                </li>
-                <li class="move-ico ico05">
-                    <a href="" class="link link04">
-                        <i class="fab fa-facebook-f"></i>
                     </a>
                 </li>
             </ul>
