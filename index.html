@@ -8,6 +8,7 @@
     <title>Document</title>
 
     <style>
+        /* basic styling  */
         html,
         body {
             position: relative;
@@ -35,6 +36,7 @@
             margin: 8px;
         }
 
+        /* styling each icon  */
         .ico01 {
             background-color: #111;
             position: relative;
@@ -59,16 +61,25 @@
             z-index: 1;
         }
 
-        .move-ico {
+        .ico05 {
+            background-color: #3b5998;
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.8s;
+            z-index: 1;
+        }
+
+        /*  styling to make icons one over the other  */
+        .icon {
             position: absolute;
             top: 0;
         }
 
-        .active .move-ico:hover {
+        /* adding transition on hover icon after active */
+        .active .icon:hover {
             top: -20%;
             transition: 0.5s cubic-bezier(.51, .5, .54, .52);
         }
 
+        /* css for transforming each icon next to one next after active  */
         .active .ico02 {
             transform: translateX(calc(54px + 30px));
             transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.8s;
@@ -84,6 +95,7 @@
             transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
         }
 
+        /* center menu object  */
         .menu-object {
             display: flex;
             justify-content: center;
@@ -91,6 +103,7 @@
             min-height: 100vh;
         }
 
+        /* css for creating plus icon  */
         .menu-object .ico01::before {
             content: "";
             position: absolute;
@@ -119,6 +132,7 @@
             transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
         }
 
+        /* css for changing menu object plus symbol  to cross cancel symbl  after active  */
         .active .menu-object .ico01::before {
             transform: rotate(45deg);
         }
@@ -127,6 +141,7 @@
             transform: rotate(45deg);
         }
 
+        /* basic styling to link  */
         .menu-object .link {
             display: block;
             width: 100%;
@@ -136,6 +151,7 @@
             font-size: 24px;
         }
 
+        /* center font awesome icon  */
         .menu-object .link i {
             position: relative;
             top: 50%;
@@ -146,28 +162,29 @@
 </head>
 
 <body>
-<div class="wrapper">
-<div class="menu-object">
-    <ul>
-        <li class="ico01 normalico"></li>
-        <li class="move-ico ico02">
-            <a href="" class="link link01">
-                <i class="fab fa-instagram"></i>
-            </a>
-        </li>
-        <li class="move-ico ico03">
-            <a href="" class="link link02">
-                <i class="fab fa-google"></i>
-            </a>
-        </li>
-        <li class="move-ico ico04">
-            <a href="" class="link link03">
-                <i class="fab fa-twitter"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-</div>
+
+    <div class="wrapper">
+        <div class="menu-object">
+            <ul>
+                <li class="ico01 normalico"></li>
+                <li class="icon ico02">
+                    <a href="" class="link link01">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li class="icon ico03">
+                    <a href="" class="link link02">
+                        <i class="fab fa-google"></i>
+                    </a>
+                </li>
+                <li class="icon ico04">
+                    <a href="" class="link link03">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 
     <script src="https://kit.fontawesome.com/dd8c49730d.js"></script>
 
